@@ -11,28 +11,25 @@ interface AcademicPerson extends Person{
   publications: string[]
 }
 
+type Car = {
+  name: string
+}
+
+type RaceCar = Car &{
+  speed: number
+} 
+
 export default function play() {
+   const car: RaceCar = {
+    name: 'My car',
+    speed: 100
+   }
 
-  const acaperson: AcademicPerson = {
-    name: 'Filip',
-    age: 30,
-    publications:["yo", "sup"]
-  }
+   function logCar(car: RaceCar){
+    console.log(car.speed)
+   }
 
-  const busperson: BusinessPerson = {
-    name: 'BusinessDude',
-    age: 69,
-    salary: 420
-  }
-
-  function logPerson(person: Person) {
-    console.log(person)
-  }
-
-  logPerson(acaperson)
-  logPerson(busperson)
-
-
+   logCar(car)
 }
 
 
