@@ -8,7 +8,7 @@ export default function play() {
   }
   
   console.log(random)
-  console.log(random.length);
+  // console.log(random.length);
 }
 
 
