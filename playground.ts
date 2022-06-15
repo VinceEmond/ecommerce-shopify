@@ -22,7 +22,7 @@ type CityCar = {
   maxSpeed: 100
 }
 
-type Car = CityCar & RaceCar
+type Car = CityCar | RaceCar
 
 export default function play() {
 
@@ -33,10 +33,17 @@ export default function play() {
   }
 
   function logCarInfo(car: Car){
-    // console.log(car.name)
-    // console.log(car.maxSpeed)
-
-    switch(car.maxSpeed)
+    console.log(car.team)
+    switch(car.maxSpeed){
+      case 200:
+        console.log(car.team)
+        break;
+      case 100:
+        console.log(car.space)
+        break;
+      default:
+        console.log(car)
+    }
   }
 }
 
