@@ -1,35 +1,29 @@
 interface Person {
-  kind: "business" | "academic" | "otherType"
   name: string
   age: number
 }
 
-interface businessPerson extends Person {
-  kind: "business"
-  salary: number
-}
-
-interface academicPerson extends Person {
-  kind: 'academic'
-  publications: string[]
-}
-
-interface Person {
-  prop1: string
-  prop2: number
-}
-
-
-export default function play() {
-  
-  function iterate(items: string[]) {
-    items.forEach((item)=> {
-      console.log(item.toUpperCase());
+class Logger<T> {
+  log(items: Array<T>, callback: (item: T) => void) {
+    items.forEach((item) => {
+      callback(item)
     })
   }
-  
-  iterate(["Sup", "dawg", "cat"]);
+}
 
+export default function play() {
+
+  const logger = new Logger<string>()
+  const cars = ["ford", "honda", "subaru"]
+  logger.log(cars,(car)=> {
+    console.log(car)
+  });
+
+  const logger2 = new Logger<number>()
+  const speeds = [45,25,62]
+  logger2.log(speeds, (speed) => {
+    console.log(speed)
+  })
 
 }
 
