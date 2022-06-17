@@ -4,6 +4,11 @@ interface Person {
   age: number
 }
 
+interface Person {
+  prop1: string
+  prop2: number
+}
+
 interface BusinessPerson extends Person {
   kind: "business"
   salary: number
@@ -35,6 +40,13 @@ export default function play() {
     name: "race car",
     maxSpeed: 200,
     team: "superteam"
+  }
+
+  const person: Person = {
+    prop1: "",
+    prop2: 2,
+    name: "",
+    age: 23
   }
 
   function logPersonInfo(human: Human){
