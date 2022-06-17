@@ -32,7 +32,13 @@ type CityCar = {
   maxSpeed: 100
 }
 
-type Car = CityCar | RaceCar
+type SUV = {
+  name: string
+  isCarbonFree: boolean
+  maxSpeed: 50
+}
+
+type Car = CityCar | RaceCar | SUV
 
 export default function play() {
 
@@ -60,10 +66,10 @@ export default function play() {
       console.log(human)
     }
   }
+  console.log((<RaceCar>car).team)
+
 
   function logCarInfo(car: Car){
-    
-    console.log((<RaceCar>car).team)
     switch(car.maxSpeed){
       case 200:
         console.log(car.team)
@@ -71,10 +77,16 @@ export default function play() {
       case 100:
         console.log(car.space)
         break;
+      case 50:
+        console.log(car.isCarbonFree)
+        break;
       default:
-        console.log(car)
+        const _never: never = car
+        return _never
     }
   }
+
+
 }
 
 
