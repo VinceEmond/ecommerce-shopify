@@ -55,7 +55,8 @@ export default function play() {
     age: 23
   }
 
-  function printInfo(someObject: {[key:string]:string|number|boolean}) {
+  function printInfo(someObject: {[key:string]: any}) {
+    someObject.age.toUpperCase()
   }
 
   printInfo({
