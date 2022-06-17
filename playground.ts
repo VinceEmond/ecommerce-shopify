@@ -4,23 +4,32 @@ interface Person {
   age: number
 }
 
+interface businessPerson extends Person {
+  kind: "business"
+  salary: number
+}
+
+interface academicPerson extends Person {
+  kind: 'academic'
+  publications: string[]
+}
+
 interface Person {
   prop1: string
   prop2: number
 }
 
-type Noop = () => any
-type Noop2 = () => void
 
 export default function play() {
-
-  function fn1(x: Noop): void {
-    x()
+  
+  function iterate(items: string[]) {
+    items.forEach((item)=> {
+      console.log(item.toUpperCase());
+    })
   }
   
-  function fn2(x: Noop2): void {
-    x()
-  }
+  iterate(["Sup", "dawg", "cat"]);
+
 
 }
 
