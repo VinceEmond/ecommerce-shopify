@@ -22,7 +22,7 @@ interface Car {
 }
 
 
-class Logger<T extends Person> {
+class Logger<T extends Person = Person> {
   log(items: Array<T>, callback: (item: T) => void) {
     items.forEach((item) => {
       callback(item)
@@ -38,5 +38,4 @@ export default function play() {
     console.log(person);
   });
 }
-
 
