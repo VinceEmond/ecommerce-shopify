@@ -3,15 +3,22 @@ interface Person {
   name: string
 }
 
-type CustomArray = {
-  [index: number]: string
+type CustomArray<T> = {
+  [index: number]: T
+}
+
+type CustomObject<T = string | number | Person> = {
+  [key: string]: string
 }
 
 
+
 export default function play() {
-
-  const items: CustomArray = ['1','2','3']
-
+  const person: CustomObject = {
+    age: '23',
+    name: 'Vince',
+    city: "sdfsdfs"
+  }
 }
 
 
