@@ -3,22 +3,17 @@ interface Person {
   name: string
 }
 
-type CustomArray<T> = {
-  [index: number]: T
-}
-
-type CustomObject<T = string | number | Person> = {
-  [key: string]: string
-}
-
-
 
 export default function play() {
-  const person: CustomObject = {
-    age: '23',
-    name: 'Vince',
-    city: "sdfsdfs"
+
+  function logger(...args: any[]) {
+    return "hello world"
   }
+
+  const newLogger: typeof logger = (name: string, age: number) => 'Hey guys'
+
+  newLogger("", 20)
+
 }
 
 
