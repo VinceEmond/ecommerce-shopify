@@ -4,15 +4,15 @@ interface Person {
 }
 
 
+type ReturnType<T> = T extends () => infer R ? R : unknown
+
 export default function play() {
 
-  function logger(...args: any[]) {
+  function logger() {
     return "hello world"
   }
 
-  const newLogger: typeof logger = (name: string, age: number) => 'Hey guys'
-
-  newLogger("", 20)
+  const loggerReturn: ReturnType<typeof logger> = 'AnyString'
 
 }
 
