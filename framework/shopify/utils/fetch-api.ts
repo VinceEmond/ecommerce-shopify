@@ -1,9 +1,13 @@
 
-type FetchParams = {
+type FetcherParams = {
   query: string
 }
 
-const fetchApi = async ({query}: FetchParams) => {
+type FetcherResult<T> = {data: T}
+
+const fetchApi = async <T>(
+  {query}: FetcherParams
+  ): Promise<FetcherResult<T>> => {
   const url = 'http://localhost:4000/graphql'
 
   // Make POST request for JSON data using query
@@ -21,6 +25,7 @@ const fetchApi = async ({query}: FetchParams) => {
   const {data, errors} = await res.json();
 
   // Error Handling if any are returned
+  // ?? is checking if left hand expression is null or undefined
   if (errors) {
     throw new Error(errors[0].message ?? errors.message)
   }

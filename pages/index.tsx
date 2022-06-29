@@ -23,4 +23,3 @@ export default function Home({products}: InferGetStaticPropsType<typeof getStati
  
 
 
- 
