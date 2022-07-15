@@ -3,7 +3,7 @@ import {
   Product as ShopifyProduct // Alias to ShopifyProduct for clarity
 } from "../schema"
 
-import { Product } from "../../common/types/product"
+import { Product } from "@common/types/product"
 
 // Function to normalize the URL of the images to a new format
 function normalizeProductImages({edges}: {edges: Array<ImageEdge>}) {
