@@ -1,8 +1,9 @@
 import {
   ImageEdge,
-  Product as ShopifyProduct
+  Product as ShopifyProduct // Alias to ShopifyProduct for clarity
 } from "../schema"
 
+import { Product } from "../../common/types/product"
 
 // Function to normalize the URL of the images to a new format
 function normalizeProductImages({edges}: {edges: Array<ImageEdge>}) {
@@ -14,7 +15,9 @@ function normalizeProductImages({edges}: {edges: Array<ImageEdge>}) {
   })
 }
 
-export function normalizeProduct(productNode: ShopifyProduct): any {
+export function normalizeProduct(productNode: ShopifyProduct): Product {
+
+  // De-construct productNode object from apiFetch
   const {
     id,
     title: name,
@@ -25,6 +28,7 @@ export function normalizeProduct(productNode: ShopifyProduct): any {
     ...rest
   } = productNode
 
+  // Create our own product object
   const product = {
     id,
     name,
