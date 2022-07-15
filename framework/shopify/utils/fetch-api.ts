@@ -25,7 +25,7 @@ const fetchApi = async <T>(
   const {data, errors} = await res.json();
 
   // Error Handling if any are returned
-  // ?? is checking if left hand expression is null or undefined
+  // ?? Operator is checking if left hand expression is null or undefined
   if (errors) {
     throw new Error(errors[0].message ?? errors.message)
   }
