@@ -1,6 +1,7 @@
 import fetchApi from "../utils/fetch-api";
 import { ProductConnection } from "../schema"
 import getAllProductsQuery from "../utils/queries/get-all-products";
+import { normalizeProduct } from "../utils/normalize"
 
 type ReturnType = {
   products: ProductConnection
@@ -12,9 +13,9 @@ const getAllProducts = async (): Promise<any> => {
   // Normalize and return new data
   // --> Destructuring "edge" to node, then using ": product" to give the alias "product"
   // --> ?? at the end is to catch undefined/null and return empty array
-  const products = data.products.edges.map(({ node: product }) => {
-    return product
-  }) ?? []
+  const products = data.products.edges.map(({ node: product }) => 
+    normalizeProduct(product)
+  ) ?? []
 
 
   return products
