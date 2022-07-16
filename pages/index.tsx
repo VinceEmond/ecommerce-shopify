@@ -1,8 +1,11 @@
 import type { InferGetStaticPropsType } from "next"
 import getAllProducts from "@framework/product/get-all-products"
+import { getConfig } from "@framework/api/config"
+import { imageConfigDefault } from "next/dist/shared/lib/image-config";
 
 export async function getStaticProps() {
-  const products = await getAllProducts()
+  const config = getConfig()
+  const products = await getAllProducts(config)
 
   return {
     props: {
