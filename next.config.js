@@ -1,6 +1,9 @@
-const { withFramworkConfig } = require("./framework/common/config");
+const { withFrameworkConfig } = require("./framework/common/config");
 
-module.exports = withFramworkConfig({
+module.exports = withFrameworkConfig({
+  framework: {
+    name: "shopify",
+  },
   reactStrictMode: false,
   i18n: {
     locales: ["en-US", "es"],

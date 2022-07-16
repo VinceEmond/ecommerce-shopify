@@ -1,10 +1,12 @@
 const path = require("path");
 const fs = require("fs");
 const merge = require("deepmerge");
+const prettier = require("prettier");
 
-function withFramworkConfig(defaultConfig = {}) {
-  // Change this line to "shopify" or "bigcommerce" respectively
-  const framework = "shopify";
+function withFrameworkConfig(defaultConfig = {}) {
+  // Function to switch which config file to load + merge
+
+  const framework = defaultConfig?.framework.name; // Default config is pulled from next.config.js
 
   const frameworkNextConfig = require(path.join(
     "../",
@@ -19,9 +21,12 @@ function withFramworkConfig(defaultConfig = {}) {
   tsConfig.compilerOptions.paths["@framework"] = [`framework/${framework}`];
   tsConfig.compilerOptions.paths["@framework/*"] = [`framework/${framework}/*`];
 
-  fs.writeFileSync(tsPath, JSON.stringify(tsConfig, null, 2));
+  fs.writeFileSync(
+    tsPath,
+    prettier.format(JSON.stringify(tsConfig), { parser: "json" })
+  );
 
   return config;
 }
 
-module.exports = { withFramworkConfig };
+module.exports = { withFrameworkConfig };
