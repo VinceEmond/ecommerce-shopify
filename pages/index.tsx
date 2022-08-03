@@ -3,6 +3,7 @@ import getAllProducts from "@framework/product/get-all-products"
 import { getConfig } from "@framework/api/config"
 import { imageConfigDefault } from "next/dist/shared/lib/image-config";
 import { Layout } from "@components/common";
+import { ProductCard } from "@components/product";
 
 
 export async function getStaticProps() {
@@ -21,7 +22,12 @@ export default function Home({products}: InferGetStaticPropsType<typeof getStati
 
   return (
     <div className="root">
-        { JSON.stringify(products) }
+        { products.slice(0,3).map(product => 
+          <ProductCard
+            key={product.id}
+            product={product}
+          /> 
+        )}
     </div>
     )
 }
