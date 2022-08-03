@@ -1,0 +1,50 @@
+/* Note that the selector given to the ruleset defines the scope that
+the custom property can be used. A common best practice
+is to define custom properties on the
+:root pseudo-class, so that it can be applied globalled accross your HTML document:
+
+try to add on .fit */
+
+/* NOTE 1: "root" is the same as if we were referencing "html" */
+/* NOTE 2: It's important to define your variable at the topmost element
+in order for all children to have access to them as well */ 
+
+:root {
+  --primary: #ffffff;
+  --primary-2: #f1f3f5;
+  --secondary: #000000;
+  --secondary-2: #111;
+  --selection: var(--cyan);
+
+  --text-base: #000000;
+  --text-primary: #000000;
+  --text-secondary: white;
+
+  --hover: rgba(0, 0, 0, 0.075);
+  --hover-1: rgba(0, 0, 0, 0.15);
+  --hover-2: rgba(0, 0, 0, 0.25);
+  --cyan: #22b8cf;
+  --green: #37b679;
+  --red: #da3c3c;
+  --pink: #e64980;
+  --purple: #f81ce5;
+  --blue: #0070f3;
+  --violet: #5f3dc4;
+  --violet-light: #7048e8;
+  --accents-0: #f8f9fa;
+  --accents-1: #f1f3f5;
+  --accents-2: #e9ecef;
+  --accents-3: #dee2e6;
+  --accents-4: #ced4da;
+  --accents-5: #adb5bd;
+  --accents-6: #868e96;
+  --accents-7: #495057;
+  --accents-8: #343a40;
+  --accents-9: #212529;
+  --font-sans: -apple-system, system-ui, BlinkMacSystemFont, 'Helvetica Neue',
+    'Helvetica', sans-serif;
+}
+
+/* (e.g., --primary: #ffffff;)
+and are accessed using the var()
+function (e.g., color: var(--primary);). */
