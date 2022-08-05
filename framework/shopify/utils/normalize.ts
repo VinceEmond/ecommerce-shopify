@@ -28,7 +28,7 @@ export function normalizeProduct(productNode: ShopifyProduct): Product {
     ...rest
   } = productNode
 
-  // Create our own product object
+  // Create our own product object to better suit our needs
   const product = {
     id,
     name,
