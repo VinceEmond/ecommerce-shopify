@@ -8,6 +8,10 @@ module.exports = {
 };
 
 // module.exports = {
+//   plugins: ["tailwindcss", "postcss-nesting", "autoprefixer"],
+// };
+
+// module.exports = {
 //   plugins: ["tailwindcss", "postcss-nesting", "postcss-nested", "autoprefixer"],
 // };
 
