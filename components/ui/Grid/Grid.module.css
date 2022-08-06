@@ -14,7 +14,14 @@
 }
 
 .layoutA {
-  color: red;
+
+  
+  & > *:nth-child(6n + 1),   /* Targeting elements: 1, 7, 13, etc. */
+  & > *:nth-child(6n + 5) {  /* Targeting elements: 5, 11, 17, etc. */
+  
+    @apply lg:col-span-2 row-span-2;
+
+  }
 }
 
 .layoutB {
